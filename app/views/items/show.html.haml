@@ -9,3 +9,16 @@
 
 .container
   .item-body= @item.body
+  %hr
+  = render :template => "comments/index"
+  
+  - if user_signed_in?
+    = render :template => "comments/new"
+  - else
+    あなたもコメントしてみませんか :)
+    %br
+    = link_to 'ユーザー登録', new_user_registration_path, :class => "btn btn-success"
+    %br
+    すでにアカウントを持っている方は
+    = link_to 'ログイン', new_user_session_path, :class => "btn btn-link"
+
