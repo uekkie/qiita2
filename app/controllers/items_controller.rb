@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
     end
 
     def set_user
-      @user = @item.user
+      @user = User.find(params[:user_id])
     end
 
     def item_params
