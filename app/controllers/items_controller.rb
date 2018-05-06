@@ -57,11 +57,7 @@ class ItemsController < ApplicationController
     end
 
     def set_user
-      if user_signed_in?
-        @user = current_user
-      else
-        @user = @item.user
-      end
+      @user = @item.user
     end
 
     def item_params
