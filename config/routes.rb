@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, :except => [:index] do
+  resources :users do
     resources :items do
       resources :comments
     end
