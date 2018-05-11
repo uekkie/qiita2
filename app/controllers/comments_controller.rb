@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @item.comments.new(comment_params)
-    @comment.user_id = current_user.id
+    @comment.user = current_user
 
     respond_to do |format|
       if @comment.save
