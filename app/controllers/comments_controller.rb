@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :create, :edit, :update, :destroy]
-  before_action :set_item, only: [:show, :create, :edit, :update, :destroy]
+  before_action :set_user, only: %i[show create edit update destroy]
+  before_action :set_item, only: %i[show create edit update destroy]
   
   def index
   end
