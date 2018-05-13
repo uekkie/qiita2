@@ -1,14 +1,8 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: %i[show create edit update destroy]
-  before_action :set_item, only: %i[show create edit update destroy]
-  
-  def index
-  end
-
-  def new
-    @comment = Comment.new
-  end
+  before_action :set_user
+  before_action :set_item
+ 
 
   def create
     @comment = @item.comments.new(comment_params)
