@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to [@user, @item], notice: '作成しました' }
+        format.html { redirect_to user_item_url(@user, @item), notice: '作成しました' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to [@user, @item], notice: '更新しました' }
+        format.html { redirect_to user_item_url(@user, @item), notice: '更新しました' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
