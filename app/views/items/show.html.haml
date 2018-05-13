@@ -1,7 +1,7 @@
 = link_to @user.email, user_path(@user)
 = @item.updated_at.strftime("%Y/%m/%d")
 に更新
-- if user_signed_in? && @user.id == current_user.id
+- if user_signed_in? && @user == current_user
   = link_to '編集する', edit_user_item_path(@user, @item)
   = link_to '削除する', user_item_path(@user, @item), method: :delete, data: {confirm: 'よろしいですか?'} 
 
