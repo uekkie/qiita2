@@ -14,7 +14,7 @@
       %tr
         %td
           = link_to item.user.email, user_path(item.user)
-          が #{item.created_at.strftime('%Y/%m/%d') }に投稿
+          が #{l item.created_at, format: :short_slash }に投稿
           %br
           = link_to item.title, user_item_path(item.user, item)
 %br
