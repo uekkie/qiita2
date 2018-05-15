@@ -3,3 +3,10 @@ ja:
     formats:
       short: "%Y年%m月%d日"
       short_slash: "%Y/%m/%d"
+  activerecord:
+    models:
+      item: 投稿
+    attributes:
+      item:
+        title: タイトル
+        body: 本文

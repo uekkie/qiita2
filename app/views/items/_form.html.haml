@@ -1,11 +1,9 @@
 = form_with(model: [@user, @item], local: true) do |form|
   - if @item.errors.any?
-    #error_explanation
-      %h2 = #{ pluralize(@item.errors.count, "error") } prohibited this item from being saved:
-
+    #error_explanation.alert.alert-danger
       %ul
-      - @item.errors.full_messages.each do |message|
-        %li = message
+        - @item.errors.full_messages.each do |message|
+          %li #{message}
 
   .field
     = form.text_field :title, id: :item_title, :placeholder => "タイトル"
