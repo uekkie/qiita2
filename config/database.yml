@@ -9,16 +9,17 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  database: rails_devdb
   username: rails_user
   password: 
   host: localhost
 
 development:
   <<: *default
+  database: qiita2_development
 
 test:
   <<: *default
+  database: qiita2_test
 
 production:
   url: <%= ENV['DATABASE_URL'] %>
