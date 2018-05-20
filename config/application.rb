@@ -17,5 +17,13 @@ module Atiiq
     config.time_zone = 'Tokyo'
 
     config.i18n.default_locale = :ja
+
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: false,
+        view_specs: false,
+        helper_spec: false,
+        routing_specs: false
+    end
   end
 end
