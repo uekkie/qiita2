@@ -42,6 +42,7 @@ group :development do
   gem 'hirb'
   gem 'hirb-unicode'
   gem 'bullet'
+  gem 'spring-commands-rspec'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
