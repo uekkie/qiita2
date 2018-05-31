@@ -1,0 +1,20 @@
+%h1 投稿一覧
+
+%h2
+  = @user.items.count
+  Items
+%table.table
+  %thead
+    %tr
+      %th タイトル
+      %th{ colspan: "2" }
+
+  %tbody
+    - @user.items.each do |item|
+      %tr
+        %td
+          = link_to item.user.email, user_path(item.user)
+          が #{l item.created_at, format: :short_slash }に投稿
+          %br
+          = link_to item.title, user_item_path(item.user, item)
+%br

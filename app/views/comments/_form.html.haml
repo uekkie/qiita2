@@ -1,0 +1,11 @@
+= form_with(model: [@user, @item, @comment], local: true) do |form|
+  - if @comment.errors.any?
+    #error_explanation.alert.alert-danger
+      %ul
+        - @item.errors.full_messages.each do |message|
+          %li #{message}
+
+  .field
+    = form.text_area :body, id: :comment_body, placeholder: "本文"
+  .actions
+    = form.submit yield :submit_label
