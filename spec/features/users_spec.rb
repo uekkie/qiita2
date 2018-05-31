@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 RSpec.feature "Users", type: :feature do
+  given(:user) { create(:user) }
+
   # ユーザーはあたらしい投稿を作成することができる
   scenario "user creates a new item" do
-    @user = create(:user)
-      
     visit root_path
     click_link 'ログイン'
     
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
 
     click_button 'Log in'
 
@@ -21,6 +21,6 @@ RSpec.feature "Users", type: :feature do
 
       expect(page).to have_content '作成しました'
       expect(page).to have_content 'Test Item'
-    }.to change(@user.items, :count).by(1)
+    }.to change(user.items, :count).by(1)
   end
 end
