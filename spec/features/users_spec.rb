@@ -18,9 +18,9 @@ RSpec.feature "Users", type: :feature do
       fill_in 'item_title', with: 'Test Item'
       fill_in 'item_body', with: 'Trying out Capybara'
       click_button '投稿する'
-
-      expect(page).to have_content '作成しました'
-      expect(page).to have_content 'Test Item'
     }.to change(user.items, :count).by(1)
+
+    expect(page).to have_content '作成しました'
+    expect(page).to have_content 'Test Item'
   end
 end
