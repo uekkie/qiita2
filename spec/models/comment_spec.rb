@@ -11,14 +11,6 @@ RSpec.describe Comment, type: :model do
       body: 'foo'
     )
   end
-  # コメントユーザー、投稿、本文があれば有効な状態であること
-  it 'is valid with a item and body' do
-    comment = @item.comments.new(
-      user: @user,
-      body: 'this is comment'
-    )
-    expect(comment).to be_valid
-  end
   # 本文がなければ無効な状態であること
   it 'is invalid without body' do
     comment = @item.comments.new(
