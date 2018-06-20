@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users , only: %i[index show] do
-    resources :items do
-      resources :comments
+    resources :items , except: :index do
+      resources :comments, only: %i[create]
     end
   end
 end
