@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: :show
 
   def index
-    @users = User.all.order(:email)
+    # @users = User.all.order(:email)
+    @users = User.page(params[:page])
   end
 
   def show
