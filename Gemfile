@@ -42,6 +42,8 @@ group :development do
   gem 'hirb-unicode'
   gem 'bullet'
   gem 'spring-commands-rspec'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
@@ -55,3 +57,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'redcarpet', '3.4.0'
+gem 'faker', '1.9.1'
