@@ -6,6 +6,6 @@
           %li #{message}
 
   .field
-    = form.text_area :body, id: :comment_body, placeholder: "本文"
+    = form.text_area :body, id: :comment_body, placeholder: "本文", class: 'form-control'
   .actions
-    = form.submit yield :submit_label
+    = form.submit (yield :submit_label), class: 'btn btn-primary'

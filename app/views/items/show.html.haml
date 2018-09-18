@@ -2,15 +2,15 @@
 #{l @item.updated_at, format: :short} に更新
 - if user_signed_in? && @user == current_user
   = link_to '編集する', edit_user_item_path(@user, @item)
-  = link_to '削除する', user_item_path(@user, @item), method: :delete, data: {confirm: 'よろしいですか?'} 
+  = link_to '削除する', user_item_path(@user, @item), method: :delete, data: {confirm: 'よろしいですか?'}
 
 %h1.item-title= @item.title
 
 .container
-  .item-body= @item.body
+  .item-body= markdown(@item.body)
   %hr
   = render template: "comments/index"
-  
+
   - if user_signed_in?
     = render template: "comments/new"
   - else

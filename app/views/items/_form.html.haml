@@ -6,8 +6,8 @@
           %li #{message}
 
   .field
-    = form.text_field :title, id: :item_title, placeholder: "タイトル"
+    = form.text_field :title, id: :item_title, placeholder: "タイトル", class: 'form-control'
   .field
-    = form.text_area :body, id: :item_body, placeholder: "本文"
+    = form.text_area :body, id: :item_body, placeholder: "本文", class: 'form-control'
   .actions
-    = form.submit yield :submit_label
+    = form.submit (yield :submit_label), class: 'btn btn-primary'

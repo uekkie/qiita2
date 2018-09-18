@@ -6,5 +6,5 @@
       = link_to user.email, user
       = l comment.created_at, format: :short_slash
       %br
-      = comment.body
+      = markdown(comment.body)
 %br
