@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'redcarpet', '3.4.0'
+
+gem 'acts-as-taggable-on', '~>6.0'
