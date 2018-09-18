@@ -7,6 +7,7 @@
 %h1.item-title= @item.title
 
 .container
+  .item-tags= render 'items/tag_list', tag_list: @item.tag_list
   .item-body= markdown(@item.body)
   %hr
   = render template: "comments/index"

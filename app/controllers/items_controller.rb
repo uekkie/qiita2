@@ -58,6 +58,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:title, :body)
+      params.require(:item).permit(:title, :body, :tag_list)
     end
 end

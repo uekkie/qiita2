@@ -8,6 +8,9 @@
   .field
     = form.text_field :title, id: :item_title, placeholder: "タイトル", class: 'form-control'
   .field
+    = text_field_tag 'item[tag_list]', @item.tag_list.join(','), placeholder: "タグ", class: 'form-control'
+
+  .field
     = form.text_area :body, id: :item_body, placeholder: "本文", class: 'form-control'
   .actions
     = form.submit (yield :submit_label), class: 'btn btn-primary'
