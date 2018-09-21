@@ -20,6 +20,6 @@ module Atiiq
         view_specs: false,
         helper_spec: false,
         routing_specs: false
-      end
     end
+  end
 end
