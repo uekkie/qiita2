@@ -19,8 +19,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'haml'
-gem 'bootstrap-sass', '3.3.7'
-gem 'rails-i18n', '~> 5.1'
+gem 'bootstrap-sass'
+gem 'rails-i18n'
 
 
 group :development, :test do
@@ -56,7 +56,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-gem 'redcarpet', '3.4.0'
-gem 'acts-as-taggable-on', '~>6.0'
-gem 'faker', '1.9.1'
+gem 'redcarpet'
+gem 'acts-as-taggable-on'
+gem 'faker'
 gem 'kaminari'
