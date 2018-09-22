@@ -1,19 +1,9 @@
 .row
   %aside.col-md-4
     %section.user_info
-      %h1
-        = @user.name
+      = render 'shared/user_info'
     %section.stats
       = render 'shared/stats'
   .col-md-8
     =render 'follow_form' if user_signed_in?
-    - if @user.items.any?
-      %h3
-        投稿一覧 (#{@user.items.count})
-      %ol.items.list-group
-        = render template: 'items/index'
-      -# = paginate @user.items
-    - else
-      %h3 投稿はありません
-
-
+    = render 'shared/feed'
