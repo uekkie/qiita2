@@ -3,7 +3,8 @@
   - @item.comments.order(:created_at).includes(:user).each do |comment|
     %li.list-group-item
       - user = comment.user
-      = link_to user.email, user
+      - user_name = user.name ||= user.email
+      = link_to user_name, user
       = l comment.created_at, format: :short_slash
       %br
       = markdown(comment.body)
