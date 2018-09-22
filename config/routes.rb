@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   }
 
   resources :users , only: %i[index show] do
+    member do
+      get :following, :followers
+    end
     resources :items , except: :index do
       resources :comments, only: %i[create]
     end
