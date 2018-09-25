@@ -2,7 +2,7 @@
   %aside.col-md-4
     %section.user_info
       %h1= @user.name
-      %span= link_to "view my profile", @user
+      %span= link_to "view my profile", user_path(@user)
       %span
         %b 投稿数
         = @user.items.count
