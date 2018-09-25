@@ -1,4 +1,4 @@
-= link_to @user.name, user_path(@user)
+= link_to @user.display_name, user_path(@user)
 #{l @item.updated_at, format: :short} に更新
 - if user_signed_in? && @user == current_user
   = link_to '編集する', edit_user_item_path(@user, @item)

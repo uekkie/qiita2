@@ -1,7 +1,7 @@
 .row
   %aside.col-md-4
     %section.user_info
-      %h1= @user.name
+      %h1= @user.display_name
       %span= link_to "プロフィールを見る", user_path(@user)
       %span
         %b 投稿数
