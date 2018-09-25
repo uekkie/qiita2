@@ -6,10 +6,11 @@
   .form-group
     = f.label :name
     = f.text_field :name, :autofocus => true, class:"form-control"
+
   .form-group
     = f.label :email
     %br
-    = f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control"
+    = f.email_field :email, autocomplete: "email", class:"form-control"
 
   .form-group
     = f.label :password

@@ -1,0 +1,16 @@
+.row
+  %aside.col-md-4
+    %section.user_info
+      %h1= @user.display_name
+      %span= link_to "プロフィールを見る", user_path(@user)
+      %span
+        %b 投稿数
+        = @user.items.count
+    %section.stats
+      = render 'shared/stats', user: @user
+  .col-md-8
+    %h3= @title
+    - if @users.any?
+      %ul.users.follow
+        = render @users
+      = paginate @users

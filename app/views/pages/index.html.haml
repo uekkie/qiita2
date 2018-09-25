@@ -1,2 +1,13 @@
-%h1 Hello hackers !
+- if user_signed_in?
+  .row
+    %aside.col-md-4
+      %section.user_info
+        =render 'shared/user_info', user: current_user
+      %section.stats
+        =render 'shared/stats', user: current_user
+    .col-md-8
+      %h3 フィード
+      =render 'shared/feed', user: current_user
+- else
+  %h1 Hello hackers !
 

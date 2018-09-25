@@ -1,8 +1,8 @@
-= form_with(model: [@user, @item, @comment], local: true) do |form|
-  - if @comment.errors.any?
+= form_with(model: [user, item, comment], local: true) do |form|
+  - if comment.errors.any?
     #error_explanation.alert.alert-danger
       %ul
-        - @item.errors.full_messages.each do |message|
+        - item.errors.full_messages.each do |message|
           %li #{message}
 
   .field
