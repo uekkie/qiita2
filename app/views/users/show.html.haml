@@ -1,9 +1,9 @@
 .row
   %aside.col-md-4
     %section.user_info
-      = render 'shared/user_info'
+      = render 'shared/user_info', user: @user
     %section.stats
-      = render 'shared/stats'
+      = render 'shared/stats', user: @user
   .col-md-8
-    =render 'follow_form' if user_signed_in?
-    = render 'shared/feed'
+    = render 'follow_form', user: @user if current_user != @user
+    = render 'shared/feed', user: @user

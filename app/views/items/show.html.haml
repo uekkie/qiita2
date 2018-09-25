@@ -10,7 +10,7 @@
   .item-tags= render 'items/tag_list', tag_list: @item.tag_list
   .item-body= markdown(@item.body)
   %hr
-  = render template: "comments/index"
+  = render "comments/comment_list", item: @item
 
   - if user_signed_in?
     = render template: "comments/new"

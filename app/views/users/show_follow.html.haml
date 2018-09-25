@@ -7,7 +7,7 @@
         %b 投稿数
         = @user.items.count
     %section.stats
-      = render 'shared/stats'
+      = render 'shared/stats', user: @user
   .col-md-8
     %h3= @title
     - if @users.any?
