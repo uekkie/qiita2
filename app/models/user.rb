@@ -31,7 +31,6 @@ class User < ApplicationRecord
   end
 
   def display_name
-    return name if name.present?
-    email
+    name.presence || email
   end
 end
