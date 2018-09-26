@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180925075149) do
+ActiveRecord::Schema.define(version: 20180926022002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 20180925075149) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_stocks_on_item_id"
+    t.index ["user_id"], name: "index_stocks_on_user_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -92,4 +101,6 @@ ActiveRecord::Schema.define(version: 20180925075149) do
   add_foreign_key "items", "users"
   add_foreign_key "relationships", "users", column: "followed_id"
   add_foreign_key "relationships", "users", column: "follower_id"
+  add_foreign_key "stocks", "items"
+  add_foreign_key "stocks", "users"
 end
