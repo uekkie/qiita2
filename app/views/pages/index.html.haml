@@ -5,9 +5,11 @@
         =render 'shared/user_info', user: current_user
       %section.stats
         =render 'shared/stats', user: current_user
+      %section.stocks
+        =render 'shared/user_stocks', items: current_user.stocked_items
     .col-md-8
-      %h3 フィード
-      =render 'shared/feed', user: current_user
+      =render 'shared/feed', items: current_user.items
+
 - else
   %h1 Hello hackers !
 

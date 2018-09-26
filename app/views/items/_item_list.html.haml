@@ -1,14 +1,4 @@
-%table.table
-  %thead
-    %tr
-      %th タイトル
-      %th{ colspan: "2" }
-
-  %tbody
-    - user.items.each do |item|
-      %tr
-        %td
-          = link_to item.title, user_item_path(item.user, item)
-          %br
-          = "#{l item.created_at, format: :short_slash }に投稿"
-%br
+- items.each do |item|
+  %li.list-group-item
+    = link_to item.title.truncate(40), user_item_path(item.user, item)
+    %span.pull-right= l item.updated_at, format: :short_slash

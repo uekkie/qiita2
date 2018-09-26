@@ -4,6 +4,9 @@
       = render 'shared/user_info', user: @user
     %section.stats
       = render 'shared/stats', user: @user
+    %section.stocks
+      = render 'shared/user_stocks', items: @user.stocked_items if current_user == @user
   .col-md-8
     = render 'follow_form', user: @user if current_user != @user
-    = render 'shared/feed', user: @user
+    = render 'shared/feed', items: @user.items
+

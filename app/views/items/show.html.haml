@@ -4,6 +4,8 @@
   = link_to '編集する', edit_user_item_path(@user, @item)
   = link_to '削除する', user_item_path(@user, @item), method: :delete, data: {confirm: 'よろしいですか?'}
 
+= render "stocks/stock", item: @item
+
 %h1.item-title= @item.title
 
 .container
