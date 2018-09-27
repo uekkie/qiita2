@@ -10,10 +10,13 @@ Rails.application.routes.draw do
       get :following, :followers
     end
     resources :items , except: :index do
+
       resources :comments, only: %i[create]
       resources :stocks, only: %i[create destroy]
     end
   end
 
   resources :relationships, only: %i[create destroy]
+
+  get 'markdown/preview'
 end
