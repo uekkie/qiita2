@@ -1,4 +1,4 @@
-= form_with(model: [user, item], local: true) do |form|
+= form_with(model: [user, item], remote: true) do |form|
   - if item.errors.any?
     #error_explanation.alert.alert-danger
       %ul
@@ -10,7 +10,13 @@
   .field
     = form.text_field :tag_list, placeholder: "タグ", class: 'form-control'
 
-  .field
-    = form.text_area :body, id: :item_body, placeholder: "本文", class: 'form-control'
+  .row
+    .col-md-6
+      .field
+        = form.text_area :body, id: :item_body, placeholder: "本文", class: 'form-control'
+    .col-md-6
+      .panel.panel-default
+        .panel-heading プレビュー
+        #preview_by_ajax.panel-body
   .actions
     = form.submit (yield :submit_label), class: 'btn btn-primary'
