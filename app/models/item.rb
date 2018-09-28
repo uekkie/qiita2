@@ -10,4 +10,6 @@ class Item < ApplicationRecord
   def stock_user(user_id)
     stocks.find_by(user_id: user_id)
   end
+
+  scope :recent, -> { order(updated_at: :desc) }
 end
