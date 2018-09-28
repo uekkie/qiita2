@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @items = @user.items.order(updated_at: :desc)
-    @stocked_items = @user.stocked_items.order(updated_at: :desc)
+    @items = @user.items.recent
+    @stocked_items = @user.stocked_items.recent
   end
 
   def following
