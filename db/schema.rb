@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20180926051814) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "stocks_count"
+    t.integer "stocks_count", default: 0, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
