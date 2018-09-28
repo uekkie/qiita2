@@ -1,7 +1,6 @@
 - if items.any?
   %h3 投稿一覧 (#{items.count})
-  %ol.items.list-group
-    = render 'items/item_list', items: items
+  = render 'items/item_list', items: items
 - else
   %h3 投稿はありません
 
