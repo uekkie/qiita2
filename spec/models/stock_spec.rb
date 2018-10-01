@@ -29,11 +29,8 @@ RSpec.describe Stock, type: :model do
     user = create(:user)
     item = create(:item)
 
-    Stock.create(user: user, item: item) do |s|
-      puts s.inspect
-    end
+    Stock.create(user: user, item: item)
     stock = Stock.new(user: user, item: item)
-    puts stock.inspect
     expect(stock).to_not be_valid
   end
 
