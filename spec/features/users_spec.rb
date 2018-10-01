@@ -7,16 +7,17 @@ RSpec.feature "Users", type: :feature do
   scenario "user creates a new item" do
     visit root_path
     click_link 'ログイン'
-    
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
 
-    click_button 'Log in'
+    fill_in 'メールアドレス', with: user.email
+    fill_in 'パスワード', with: user.password
+
+    click_button 'ログイン'
+
+    click_link '投稿する'
+    fill_in 'item_title', with: 'Test Item'
+    fill_in 'item_body', with: 'Trying out Capybara'
 
     expect {
-      click_link 'Atiiq に投稿'
-      fill_in 'item_title', with: 'Test Item'
-      fill_in 'item_body', with: 'Trying out Capybara'
       click_button '投稿する'
     }.to change(user.items, :count).by(1)
 
