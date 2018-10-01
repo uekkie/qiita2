@@ -34,9 +34,6 @@ RSpec.describe Stock, type: :model do
     end
     stock = Stock.new(user: user, item: item)
     puts stock.inspect
-    # stock.valid?
-    # puts stock.errors.full_messages
-
     expect(stock).to_not be_valid
   end
 
