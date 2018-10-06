@@ -4,8 +4,7 @@ RSpec.feature "Users", type: :feature do
 
   given(:user) { create(:user) }
 
-  # ユーザーはログインができる
-  scenario "can login" do
+  scenario "ユーザーはログインができる" do
     visit root_path
     click_link 'ログイン'
 
@@ -19,8 +18,7 @@ RSpec.feature "Users", type: :feature do
     expect(page).to have_content 'ログインしました'
   end
 
-  # ユーザーはログアウトができる
-  scenario "can logout" do
+  scenario "ユーザーはログアウトができる" do
     sign_in user
     visit root_path
     expect(page).to have_content "ログアウト"
@@ -33,8 +31,7 @@ RSpec.feature "Users", type: :feature do
   end
 
 
-  # ユーザーはあたらしい投稿を作成することができる
-  scenario "creates a new item" do
+  scenario "ユーザーはあたらしい投稿を作成することができる" do
     sign_in user
     visit new_user_item_path(user)
 
