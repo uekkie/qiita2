@@ -1,0 +1,10 @@
+%h3 コメント一覧
+%ul.list-group
+  - item.comments.order(:created_at).includes(:user).each do |comment|
+    %li.list-group-item
+      - user = comment.user
+      = link_to user.display_name, user_path(user)
+      = l comment.created_at, format: :short_slash
+      %br
+      = markdown(comment.body)
+%br

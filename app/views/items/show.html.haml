@@ -1,16 +1,20 @@
-= link_to @user.email, user_path(@user)
+= link_to @user.display_name, user_path(@user)
 #{l @item.updated_at, format: :short} に更新
 - if user_signed_in? && @user == current_user
   = link_to '編集する', edit_user_item_path(@user, @item)
-  = link_to '削除する', user_item_path(@user, @item), method: :delete, data: {confirm: 'よろしいですか?'} 
+  = link_to '削除する', user_item_path(@user, @item), method: :delete, data: {confirm: 'よろしいですか?'}
+
+#stock-buttons-form
+  = render "stocks/stock", item: @item
 
 %h1.item-title= @item.title
 
 .container
-  .item-body= @item.body
+  .item-tags= render 'items/tag_list', tag_list: @item.tag_list
+  .item-body= markdown(@item.body)
   %hr
-  = render template: "comments/index"
-  
+  = render "comments/comment_list", item: @item
+
   - if user_signed_in?
     = render template: "comments/new"
   - else

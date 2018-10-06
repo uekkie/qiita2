@@ -3,9 +3,6 @@ class ItemsController < ApplicationController
   before_action :set_user, only: %i[show new create edit update destroy]
   before_action :set_item, only: %i[show edit update destroy]
 
-  def index
-  end
-
   def show
     @comment = Comment.new
   end
@@ -61,6 +58,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:title, :body)
+      params.require(:item).permit(:title, :body, :tag_list)
     end
 end
