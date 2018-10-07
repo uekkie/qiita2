@@ -50,4 +50,19 @@ RSpec.feature "Users", type: :feature do
     expect(page).to have_content 'Rails'
     expect(page).to have_content 'Trying out Capybara'
   end
+
+  scenario 'パスワードを間違えると再入力を求められる' do
+    visit root_path
+    click_link 'ログイン'
+
+    expect(current_path).to eq(new_user_session_path)
+
+    fill_in 'メールアドレス', with: user.email
+    fill_in 'パスワード', with: 'faild-pass'
+
+    click_button 'ログイン'
+
+    expect(page).to have_content 'Email もしくはパスワードが不正です。'
+    expect(current_path).to eq(new_user_session_path)
+  end
 end
