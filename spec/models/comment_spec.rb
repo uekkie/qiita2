@@ -11,8 +11,8 @@ RSpec.describe Comment, type: :model do
       body: 'foo'
     )
   end
-  # 本文がなければ無効な状態であること
-  it 'is invalid without body' do
+
+  it '本文がなければ無効な状態であること' do
     comment = @item.comments.new(
       user: @user,
       body: nil
@@ -20,8 +20,8 @@ RSpec.describe Comment, type: :model do
     comment.valid?
     expect(comment.errors[:body]).to include('を入力してください')
   end
-  # コメントユーザーがなければ無効な状態であること
-  it 'is invalid without comment user' do
+
+  it 'コメントユーザーがなければ無効な状態であること' do
     comment = @item.comments.new(
       user: nil,
       body: 'this is comment'
@@ -29,9 +29,8 @@ RSpec.describe Comment, type: :model do
     comment.valid?
     expect(comment.errors[:user]).to include('を入力してください')
   end
-  
-  # 投稿がなければ無効な状態であること
-  it 'is invalid without item' do
+
+  it '投稿がなければ無効な状態であること' do
     comment = Comment.new(
       user: @user,
       body: 'this is comment'
