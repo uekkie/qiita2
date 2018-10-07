@@ -1,18 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  before do
-    @user = User.new(
-      email: 'test@test.com',
-      password: 'testuser'
-    )
+
+  it 'user, title, body があれば有効であること' do
+    item = create(:item)
+    expect(item).to be_valid
   end
-  # ユーザーがなければ無効な状態であること
-  it 'is invlid without user' do
-    item = Item.new(
-      title: 'Title',
-      body: 'Body'
-    )
+
+  it 'ユーザーがなければ無効' do
+    item = build(:item, user: nil)
     item.valid?
     expect(item.errors[:user]).to include('を入力してください')
   end

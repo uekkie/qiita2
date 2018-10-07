@@ -11,10 +11,9 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  # controller spec のとき Devise::TestHelpers を　include
   config.include Devise::TestHelpers, type: :controller
 
-  # request spec のとき RequestHelperを　include
   config.include RequestSpecHelper, type: :request
+  config.include RequestSpecHelper, type: :feature
 
 end
