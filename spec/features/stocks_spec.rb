@@ -1,0 +1,20 @@
+require 'rails_helper'
+
+RSpec.feature "Stocks", type: :feature do
+
+
+  scenario 'ユーザーは投稿をストックできること', js: true do
+    item = create(:item)
+    user = create(:hiroshi)
+    sign_in user
+
+    visit user_item_path item.user, item
+    expect(item.stocks.count).to eq 0
+    expect(find('#stock-button')).to have_text('ストックする 0')
+
+    using_wait_time(1) do
+      click_button 'ストックする'
+    end
+    expect(find('#stock-button')).to have_text('ストック解除 1')
+  end
+end
