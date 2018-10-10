@@ -10,9 +10,7 @@ RSpec.feature "Stocks", type: :feature do
     expect(item.stocks.count).to eq 0
     expect(find('#stock-button')).to have_text('ストックする 0')
 
-    using_wait_time(1) do
-      click_button 'ストックする'
-    end
+    click_button 'ストックする'
     expect(find('#stock-button')).to have_text('ストック解除 1')
   end
 end
