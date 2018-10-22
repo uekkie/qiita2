@@ -5,18 +5,18 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :users , only: %i[index show] do
+  resources :users , only: %i(index show) do
     member do
       get :following, :followers
     end
     resources :items , except: :index do
 
-      resources :comments, only: %i[create]
-      resources :stocks, only: %i[create destroy]
+      resources :comments, only: %i(create)
+      resources :stocks, only: %i(create destroy)
     end
   end
 
-  resources :relationships, only: %i[create destroy]
+  resources :relationships, only: %i(create destroy)
 
   get 'markdown/preview'
 end

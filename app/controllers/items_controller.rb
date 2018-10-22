@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!,only: %i[new edit update destroy]
-  before_action :set_user, only: %i[show new create edit update destroy]
-  before_action :set_item, only: %i[show edit update destroy]
+  before_action :authenticate_user!,only: %i(new edit update destroy)
+  before_action :set_user, only: %i(show new create edit update destroy)
+  before_action :set_item, only: %i(show edit update destroy)
 
   def show
     @comment = Comment.new

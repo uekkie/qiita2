@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: %i[index edit update destroy following followers]
+  before_action :authenticate_user!, only: %i(index edit update destroy following followers)
   before_action :set_user, only: :show
 
   def index
