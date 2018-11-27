@@ -37,12 +37,11 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
     # Database setup
-    database:
-      pre:
-        - mv config/database.yml.ci config/database.yml
-      override:
-        - bundle exec rake db:create db:schema:load RAILS_ENV=test
-        - bundle exec rake db:migrate RAILS_ENV=test
+      - run: mv config/database.yml.ci config/database.yml
+
+      - run: bundle exec rake db:create db:schema:load RAILS_ENV=test
+
+      - run: bundle exec rake db:migrate RAILS_ENV=test
 
       # run tests!
       - run:
