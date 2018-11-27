@@ -3,5 +3,5 @@ test:
   encoding: utf8
   pool: 5
   timeout: 10000
-  database: qiita2_test
-  username: rails_user
+  database: circle-test_test
+  username: root

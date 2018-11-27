@@ -8,11 +8,17 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.4.1-node-browsers
+        environment:
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: root
 
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
+    # Service container image available at `host: localhost`
+
       - image: circleci/postgres:9.4
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: circle-test_test
 
     working_directory: ~/repo
 
@@ -26,10 +32,12 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
+      # Bundle install dependencies
       - run:
           name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+          command: bundle check --path=vendor/bundle || bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - run: sudo apt install -y postgresql-client || true
 
       - save_cache:
           paths:
@@ -37,9 +45,12 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
     # Database setup
-      - run: mv config/database.yml.ci config/database.yml
-      - run: bundle exec rake db:create db:schema:load RAILS_ENV=test
-      - run: bundle exec rake db:migrate RAILS_ENV=test
+      - run:
+          name: Database Setup
+          command: |
+            mv config/database.yml.ci config/database.yml
+            bundle exec rake db:create db:schema:load
+            bundle exec rake db:migrate
 
       # run tests!
       - run:
