@@ -1,7 +1,7 @@
-%h1= @tag.name
+%h1= @tag_name
 = "#{@items.count} 記事"
-= "#{@users_count} フォロワー"
-= render 'follow_form', tag: @tag
+= "#{@followers} フォロワー"
+= render 'follow_form', tag_name: @tag_name
 %ul.list-group
 - @items.each do |item|
   %li.list-group-item= link_to "#{item.title}", user_item_path(item.user, item)
