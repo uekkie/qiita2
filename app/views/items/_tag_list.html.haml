@@ -1,2 +1,2 @@
 - tag_list.each do |tag|
-  %span.label.label-primary= tag
+  = link_to tag, tag_path(tag), class: "btn btn-xs btn-default", role: "button"

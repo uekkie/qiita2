@@ -1,0 +1,7 @@
+%h1= @tag.name
+= "#{@items.count} 記事"
+= "#{@users_count} フォロワー"
+= link_to "フォロー", "#", class: "btn btn-default", role: "button"
+%ul.list-group
+- @items.each do |item|
+  %li.list-group-item= link_to "#{item.title}", user_item_path(item.user, item)

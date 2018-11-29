@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tags , only: %i(show)
+
   resources :relationships, only: %i(create destroy)
 
   get 'markdown/preview'
