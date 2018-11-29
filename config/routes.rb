@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tags , only: %i(show)
+  resources :tags , only: %i(show create destroy)
 
   resources :relationships, only: %i(create destroy)
 
