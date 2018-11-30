@@ -1,2 +1,1 @@
-= form_with url: tag_path(tag_name), html: { method: :delete }, local: true do |f|
-  = f.submit "フォロー解除", class: "btn btn-danger"
+= button_to "フォロー解除", tag_path(tag_name), method: :delete, local: true, class: "btn btn-danger"
