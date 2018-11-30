@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+  before_action :authenticate_user!,only: %i(create destroy)
+
   def show
     @tag_name = params[:name]
     @items = Item.tagged_with(@tag_name)
