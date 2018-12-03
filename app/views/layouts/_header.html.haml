@@ -1,13 +1,12 @@
 %header
-  %nav.navbar.navbar-primary.navbar-fixed-top
-    .container
-      = link_to "Atiiq", root_path, id: 'logo'
-      %ul.nav.navbar-nav.navbar-right
-        - if user_signed_in?
-          %li= link_to '投稿する', new_user_item_path(current_user), class: "btn btn-success navbar-btn"
-          %li= link_to '記事の一覧', user_path(current_user), class: "btn btn-default navbar-btn"
-          %li= link_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-default navbar-btn"
-          %li= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn"
-        - else
-          %li= link_to 'ユーザー登録', new_user_registration_path, class: "btn btn-outline-success navbar-btn"
-          %li= link_to 'ログイン', new_user_session_path, class: "btn btn-link navbar-btn"
+  .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+    .navbar-brand Atiiq
+    %ul.navbar-nav.ml-auto
+      - if user_signed_in?
+        %li.nab-item= link_to '投稿する', new_user_item_path(current_user), class: 'nav-link'
+        %li.nab-item= link_to '記事の一覧', user_path(current_user), class: 'nav-link'
+        %li.nab-item= link_to 'プロフィール変更', edit_user_registration_path, class: 'nav-link'
+        %li.nab-item= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
+      - else
+        %li.nab-item= link_to 'ユーザー登録', new_user_registration_path, class: 'nav-link'
+        %li.nab-item= link_to 'ログイン', new_user_session_path, class: 'nav-link'
