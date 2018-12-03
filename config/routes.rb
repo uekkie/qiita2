@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :tags , only: %i(show), param: :name do
-    resource :follow , only: %i(create destroy), controller: "tags_follow"
+    resource :follow , only: %i(create destroy), module: :tags
   end
 
   resources :relationships, only: %i(create destroy)
