@@ -1,4 +1,1 @@
-= form_with url: tags_path, local: true do |f|
-  %div
-    = hidden_field_tag :name, tag_name
-  = f.submit "フォロー", class: "btn btn-default"
+= button_to 'フォロー', tags_path(name: tag_name), class: "btn btn-default"
