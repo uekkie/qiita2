@@ -19,7 +19,6 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'haml'
-gem 'bootstrap-sass'
 gem 'rails-i18n'
 
 
@@ -60,4 +59,5 @@ gem 'redcarpet'
 gem 'acts-as-taggable-on'
 gem 'faker'
 gem 'kaminari'
+gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
