@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :stocks, dependent: :destroy
   has_many :stocked_items, through: :stocks, source: :item
 
+  acts_as_ordered_taggable
+
   # ユーザーをフォローする
   def follow(other_user)
     following << other_user
