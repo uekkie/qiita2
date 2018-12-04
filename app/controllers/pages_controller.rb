@@ -1,9 +1,7 @@
 class PagesController < ApplicationController
-
   def index
-    if current_user
-      @items = current_user.items.recent
-      @stocked_items = current_user.stocked_items.recent
+    if user_signed_in?
+      redirect_to user_path(current_user)
     end
   end
 end
