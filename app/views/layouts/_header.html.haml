@@ -1,12 +1,15 @@
 %header
-  .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-    .navbar-brand Atiiq
-    %ul.navbar-nav.ml-auto
-      - if user_signed_in?
-        %li.nab-item= link_to '投稿する', new_user_item_path(current_user), class: 'nav-link'
-        %li.nab-item= link_to '記事の一覧', user_path(current_user), class: 'nav-link'
-        %li.nab-item= link_to 'プロフィール変更', edit_user_registration_path, class: 'nav-link'
-        %li.nab-item= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
-      - else
-        %li.nab-item= link_to 'ユーザー登録', new_user_registration_path, class: 'nav-link'
-        %li.nab-item= link_to 'ログイン', new_user_session_path, class: 'nav-link'
+  %nav.navbar.navbar-expand-md
+    = link_to 'Atiiq', root_path, class: 'navbar-brand text-white'
+
+    %button.navbar-toggler{type:"button", data:{toggle:"collapse", target:"#mainNavbarCollapse"}}= '&#9776;'.html_safe
+    #mainNavbarCollapse.collapse.navbar-collapse.ml-auto
+      %ul.navbar-nav.ml-auto
+        - if user_signed_in?
+          %li.nab-item= link_to '投稿する', new_user_item_path(current_user), class: 'nav-link text-white'
+          %li.nab-item= link_to '記事の一覧', user_path(current_user), class: 'nav-link text-white'
+          %li.nab-item= link_to 'プロフィール変更', edit_user_registration_path, class: 'nav-link text-white'
+          %li.nab-item= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-white'
+        - else
+          %li.nab-item= link_to 'ユーザー登録', new_user_registration_path, class: 'nav-link text-white'
+          %li.nab-item= link_to 'ログイン', new_user_session_path, class: 'nav-link text-white'

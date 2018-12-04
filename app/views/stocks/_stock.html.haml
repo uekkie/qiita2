@@ -2,8 +2,8 @@
   - if stock = item.stock_user(current_user.id)
     = button_to user_item_stock_path(item.user, item, stock), class: "btn btn-danger", method: :delete, id: "stock-button", remote: true do
       ストック解除
-      %span.badge.badge-default #{item.stocks_count}
+      %span.badge.badge-light #{item.stocks_count}
   - else
     = button_to user_item_stocks_path(item.user, item), class: "btn btn-success", id: "stock-button", remote: true do
       ストックする
-      %span.badge.badge-default #{item.stocks_count}
+      %span.badge.badge-light #{item.stocks_count}
