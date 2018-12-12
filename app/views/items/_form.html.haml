@@ -9,15 +9,15 @@
     = form.text_field :title, id: :item_title, placeholder: "タイトル", class: 'form-control'
   .field.mt-1
     = form.text_field :tag_list, id: :item_tag, placeholder: "タグ", class: 'form-control'
-  
+
   .row.mt-3
     .col-md-6
       .card
         .card-header 本文
         = form.text_area :body, id: :item_body, placeholder: "本文", class: 'form-control'
-    .col-md-6.mt-3 
+    .col-md-6.mt-3
       .card
         .card-header プレビュー
         #preview_by_ajax.card-body #{markdown(item.body)}
-  .actions.clearfix
-    = form.submit (yield :submit_label), class: 'btn btn-primary float-right mt-1'
+  .actions.text-right
+    = form.submit (yield :submit_label), class: 'btn btn-primary mt-1'
