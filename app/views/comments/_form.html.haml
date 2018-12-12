@@ -7,5 +7,5 @@
 
   .field
     = form.text_area :body, id: :comment_body, placeholder: "本文", class: 'form-control'
-  .actions
-    = form.submit (yield :submit_label), class: 'btn btn-primary'
+  .actions.text-right
+    = form.submit (yield :submit_label), class: 'btn btn-primary mt-1'
