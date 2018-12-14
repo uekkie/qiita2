@@ -1,0 +1,24 @@
+- if items.any?
+  %h4 タグフィード
+
+  .paginate= paginate @items
+
+  %ol.items.list-group
+    - items.each do |item|
+      %li.list-group-item
+        - tagit = item.tag_list.find{ |tag| @followed_tag_list.include?(tag) }
+        .tag
+          %code= tagit
+          に新しい投稿がありました
+
+        = link_to item.title.truncate(40), user_item_path(item.user, item)
+        %span.pull-right= l item.updated_at, format: :short_slash
+        .info
+          %span.author= link_to item.user.name, user_path(item.user), class: "badge badge-xs"
+          - item.tag_list.each do |tag|
+            = link_to tag, tag_path(tag), class: "badge badge-xs btn-light", role: "button"
+
+- else
+  %h4 タグフィードはありません
+
+
