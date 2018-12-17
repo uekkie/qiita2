@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   resource :tagfeed, only: :show
+  resource :timeline, only: :show
 
   resources :relationships, only: %i(create destroy)
 
