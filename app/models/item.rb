@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   end
 
   def trancate_title
-    title.truncate(4)
+    title.truncate(40)
   end
 
   def like_user(user_id)
