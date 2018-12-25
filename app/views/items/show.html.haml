@@ -12,6 +12,8 @@
 .container
   .item-tags= render 'items/tag_list', tag_list: @item.tag_list
   .item-body= markdown(@item.body)
+  #like-buttons-form
+    = render 'items/likes/like', item: @item if @item.user != current_user
   %hr
   = render "comments/comment_list", item: @item
 
