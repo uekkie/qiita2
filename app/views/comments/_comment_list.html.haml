@@ -7,4 +7,6 @@
       = l comment.created_at, format: :short_slash
       %br
       = markdown(comment.body)
+      %div{ id: "like-comment-form-#{comment.id}"}
+        = render 'comments/likes/like', comment: comment if comment.user != current_user
 %br
