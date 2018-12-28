@@ -12,10 +12,10 @@ Rails.application.routes.draw do
     resources :items , except: :index do
 
       resources :comments, only: %i(create) do
-        resources :likes, only: %i(create destroy), module: :comments
+        resource :likes, only: %i(create destroy), module: :comments
       end
       resources :stocks, only: %i(create destroy)
-      resources :likes, only: %i(create destroy), module: :items
+      resource :likes, only: %i(create destroy), module: :items
     end
   end
 
