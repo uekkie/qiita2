@@ -11,7 +11,7 @@ class Item < ApplicationRecord
     stocks.find_by(user_id: user_id)
   end
 
-  def trancate_title
+  def truncated_title
     title.truncate(4)
   end
 
