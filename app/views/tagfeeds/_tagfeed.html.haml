@@ -6,9 +6,9 @@
   %ol.items.list-group
     - items.each do |item|
       %li.list-group-item
-        - tagit = item.tag_list.find{ |tag| @followed_tag_list.include?(tag) }
+        - matched_tag = (item.tag_list & @followed_tag_list).first
         .tag
-          %code= tagit
+          %code= matched_tag
           に新しい投稿がありました
 
         = link_to item.truncated_title, user_item_path(item.user, item)
