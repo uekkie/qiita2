@@ -12,7 +12,7 @@ class Item < ApplicationRecord
     stocks.find_by(user_id: user_id)
   end
 
-  def trancate_title
+  def truncated_title
     title.truncate(40)
   end
 
@@ -22,6 +22,5 @@ class Item < ApplicationRecord
 
   scope :recent, -> { order(updated_at: :desc) }
 
-  scope :by_join_date, -> { order(created_at: :desc) }
-
+  scope :newer, -> { order(created_at: :desc) }
 end

@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       resources :stocks, only: %i(create destroy)
       resources :likes, only: %i(create destroy), module: :items
     end
-
   end
 
   resources :tags , only: %i(show), param: :name do
