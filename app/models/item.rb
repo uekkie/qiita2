@@ -12,4 +12,6 @@ class Item < ApplicationRecord
   end
 
   scope :recent, -> { order(updated_at: :desc) }
+
+  scope :newer, -> { order(created_at: :desc) }
 end

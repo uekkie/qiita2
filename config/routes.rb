@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resource :follow , only: %i(create destroy), module: :tags
   end
 
+  resource :tagfeed, only: :show
+
   resources :relationships, only: %i(create destroy)
 
   get 'markdown/preview'
