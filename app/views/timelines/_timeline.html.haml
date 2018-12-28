@@ -1,7 +1,7 @@
 - if items.any?
   %h4 タイムライン
 
-  .paginate= paginate @items
+  .paginate= paginate items
 
   %ol.items.list-group
     - items.each do |item|
