@@ -8,7 +8,7 @@
       %li.list-group-item
         %span.author
           =link_to item.user.name, user_path(item.user)
-          =" が　投稿しました"
+          が投稿しました
         = link_to item.truncated_title, user_item_path(item.user, item)
         %span.pull-right= l item.updated_at, format: :short_slash
 - else
