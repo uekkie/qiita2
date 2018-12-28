@@ -14,7 +14,6 @@ Rails.application.routes.draw do
       resources :comments, only: %i(create)
       resources :stocks, only: %i(create destroy)
     end
-
   end
 
   resources :tags , only: %i(show), param: :name do
