@@ -1,0 +1,8 @@
+- if item.like_user(current_user)
+  = button_to user_item_like_path(item.user, item), class: "btn btn-danger", method: :delete, id: "like-button", remote: true do
+    いいね解除
+    %span.badge.badge-danger
+- else
+  = button_to user_item_like_path(item.user, item), class: "btn btn-success", id: "like-button", remote: true do
+    いいね
+    %span.badge.badge-light

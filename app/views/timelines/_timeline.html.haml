@@ -1,0 +1,15 @@
+- if items.any?
+  %h4 タイムライン
+
+  .paginate= paginate items
+
+  %ol.items.list-group
+    - items.each do |item|
+      %li.list-group-item
+        %span.author
+          =link_to item.user.name, user_path(item.user)
+          が投稿しました
+        = link_to item.truncated_title, user_item_path(item.user, item)
+        %span.pull-right= l item.updated_at, format: :short_slash
+- else
+  %h4 タイムラインはありません

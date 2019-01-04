@@ -11,7 +11,7 @@
           %code= matched_tag
           に新しい投稿がありました
 
-        = link_to item.title.truncate(40), user_item_path(item.user, item)
+        = link_to item.truncated_title, user_item_path(item.user, item)
         %span.pull-right= l item.updated_at, format: :short_slash
         .info
           %span.author= link_to item.user.name, user_path(item.user), class: "badge badge-xs"
