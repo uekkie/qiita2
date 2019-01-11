@@ -8,6 +8,6 @@ class CreateNotifications < ActiveRecord::Migration[5.1]
       t.references :user, foreign_key: true, null: false, type: :integer
       t.timestamps
     end
-    add_index    :notifications, ["notificatable_type", "notificatable_id", "user_id"], unique: true
+    add_index    :notifications, ["notificatable_type", "notificatable_id", "user_id"], unique: true, name: 'notification_ids'
   end
 end
