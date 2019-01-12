@@ -2,7 +2,7 @@
 
 # Ruby on Rails 学習用アプリ
 
-技術投稿サイト Qiita のクローンアプリ.
+技術投稿サイト Qiita のクローンアプリ。
 
 ## ER図
 ![atiiq.png](atiiq.png)
