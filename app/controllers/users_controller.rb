@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def show
     @items = @user.items.recent
     @stocked_items = @user.stocked_items.recent
+    @notifications = Notification.where(user_id: @user.id)
   end
 
   def following
