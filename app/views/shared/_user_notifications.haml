@@ -1,0 +1,7 @@
+- if notifications.any?
+  %h3 通知一覧 (#{notifications.count})
+  = render 'notifications/notification_list', notifications: notifications
+- else
+  %h3 通知はありません
+
+

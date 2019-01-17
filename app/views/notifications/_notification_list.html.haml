@@ -1,0 +1,7 @@
+%ol.notification.list-group
+  - notifications.each do |notification|
+    %li.list-group-item
+      = link_to "#{notification.sender.name}", user_path(notification.sender)
+      さんが
+      = link_to "#{notification.item.truncated_title}", user_item_path(notification.owner, notification.item)
+      にコメントしました
