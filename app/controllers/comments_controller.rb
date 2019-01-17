@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
   before_action :set_user
   before_action :set_item
 
-
   def create
     @comment = @item.comments.new(comment_params)
     @comment.user = current_user
