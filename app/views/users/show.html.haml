@@ -6,9 +6,9 @@
       = render 'shared/stats', user: @user
     - if current_user == @user
       %section.stocks
-        = render 'shared/user_stocks', items: @stocked_items
+        = render 'shared/user_stocks', items:  @user.stocked_items.recent
       %section.notification
-        = render 'shared/user_notifications', notifications: @notifications
+        = render 'shared/user_notifications', notifications: @user.notifications.unchecked
       %section.tags_feed
         = link_to "タグフィード", tagfeed_path
       %section.timeline

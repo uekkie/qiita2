@@ -7,8 +7,6 @@ class UsersController < ApplicationController
 
   def show
     @items = @user.items.recent
-    @stocked_items = @user.stocked_items.recent
-    @notifications = @user.notifications.unchecked
   end
 
   def following
