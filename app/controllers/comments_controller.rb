@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        Notification.create!(owner:@user, sender:current_user, item:@item)
+        @user.notifications.create!(owner:@user, sender:current_user, item:@item)
         format.html { redirect_to user_item_url(@user, @item), notice: '作成しました' }
         format.json { render :show, status: :created, location: @comment }
       else
