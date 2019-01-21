@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def show
     @items = @user.items.recent
     @stocked_items = @user.stocked_items.recent
-    @notifications = @user.notifications.includes([:owner, :sender, :item]).where(owner: @user, confirmed: false).order(created_at: :desc).limit(5)
+    @notifications = @user.notifications.includes(:owner, :sender, :item).where(owner: @user, confirmed: false).order(created_at: :desc).limit(5)
   end
 
   def following
