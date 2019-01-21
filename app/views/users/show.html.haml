@@ -13,7 +13,7 @@
         = link_to "タイムライン", timeline_path
         %hr
       %section.notification
-        = render 'shared/user_notifications', notifications: @user.notifications.unchecked
+        = render 'shared/user_notifications', notifications: @user.notifications.recent
         %hr
 
   .col-md-8
