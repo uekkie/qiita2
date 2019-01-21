@@ -1,7 +1,10 @@
 %ol.notification.list-group
   - notifications.each do |notification|
-    %li.list-group-item
+    %li.list-group-item{ id: "notification-comment-#{notification.comment.id}"}
       = link_to "#{notification.comment.user.name}", user_path(notification.comment.user)
       さんが
       = link_to "#{notification.comment.item.truncated_title}", user_item_path(notification.user, notification.comment.item)
       にコメントしました
+      .actions.text-right
+        = button_to user_item_comment_notification_path(notification.user, notification.comment.item, notification.comment), class: "btn btn-sm btn-primary", method: :delete, id: "dismiss-button", remote: true do
+          確認
