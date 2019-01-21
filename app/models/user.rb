@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :stocks, dependent: :destroy
   has_many :stocked_items, through: :stocks, source: :item
 
-  has_many :notifications, class_name: "Notification", foreign_key: "owner_id"
+  has_many :notifications
 
   acts_as_ordered_taggable
 

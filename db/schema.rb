@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190117115956) do
+ActiveRecord::Schema.define(version: 20190121064215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,15 +46,13 @@ ActiveRecord::Schema.define(version: 20190117115956) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "owner_id", null: false
-    t.integer "sender_id", null: false
-    t.bigint "item_id"
-    t.boolean "confirmed", default: false, null: false
+    t.boolean "checked", default: false, null: false
+    t.bigint "user_id"
+    t.bigint "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_notifications_on_item_id"
-    t.index ["owner_id"], name: "index_notifications_on_owner_id"
-    t.index ["sender_id"], name: "index_notifications_on_sender_id"
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -124,7 +122,8 @@ ActiveRecord::Schema.define(version: 20190117115956) do
   add_foreign_key "comments", "users"
   add_foreign_key "items", "users"
   add_foreign_key "likes", "users"
-  add_foreign_key "notifications", "items"
+  add_foreign_key "notifications", "comments"
+  add_foreign_key "notifications", "users"
   add_foreign_key "relationships", "users", column: "followed_id"
   add_foreign_key "relationships", "users", column: "follower_id"
   add_foreign_key "stocks", "items"
