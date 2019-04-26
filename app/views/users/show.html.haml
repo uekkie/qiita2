@@ -11,6 +11,8 @@
         = link_to "タグフィード", tagfeed_path
       %section.timeline
         = link_to "タイムライン", timeline_path
+      %section.notifications
+        = render 'shared/notifications', notifications: @notifications
 
   .col-md-8
     = render 'follow_form', user: @user if current_user && current_user != @user
