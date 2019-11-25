@@ -7,7 +7,6 @@ class UsersController < ApplicationController
 
   def show
     @items = @user.items.recent
-    @stocked_items = @user.stocked_items.recent
   end
 
   def following

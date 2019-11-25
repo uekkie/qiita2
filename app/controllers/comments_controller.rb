@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
   before_action :set_item
- 
 
   def create
     @comment = @item.comments.new(comment_params)
@@ -10,6 +9,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        @user.notifications.create!(comment:@comment)
         format.html { redirect_to user_item_url(@user, @item), notice: '作成しました' }
         format.json { render :show, status: :created, location: @comment }
       else

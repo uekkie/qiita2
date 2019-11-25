@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
       resources :comments, only: %i(create) do
         resource :like, only: %i(create destroy), module: :comments
+        resource :notification, only: %i(destroy), module: :comments
       end
       resources :stocks, only: %i(create destroy)
       resource :like, only: %i(create destroy), module: :items
