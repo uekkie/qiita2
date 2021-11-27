@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
-  given(:user) { create(:user) }
+  let(:user) { create(:user) }
 
   scenario "ユーザーはログインができる" do
     visit root_path
