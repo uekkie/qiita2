@@ -5,11 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.2.2.1'
+gem 'rails', '~> 6.1.4'
 
-gem 'sqlite3', group: [:development, :test]
-gem 'pg', '0.20.0', group: :production
-
+gem 'pg', '1.2.3'
 gem 'puma', '~> 3.7'
 gem 'sassc-rails'
 gem 'uglifier', '>= 1.3.0'
@@ -23,7 +21,7 @@ gem 'rails-i18n'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'selenium-webdriver'
-  gem 'rspec-rails', '~> 3.6.0'
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
