@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Stocks", type: :feature do
+RSpec.describe "Stocks", type: :system do
   scenario 'ユーザーは投稿をストックできること', js: true do
     item = create(:item)
     user = create(:hiroshi)

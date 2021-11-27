@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :user do
-    name 'Tester'
+    name {'Tester'}
     sequence(:email) { |n| "user#{n}@test.com" }
-    password "userpassword"
-    password_confirmation "userpassword"
+    password {"userpassword"}
+    password_confirmation {"userpassword"}
 
     trait :with_items do
       after(:build) do |user|
@@ -13,8 +13,8 @@ FactoryBot.define do
   end
 
   factory :hiroshi, class: User do
-    email "ueki@test.com"
-    password "hiroshi123"
-    password_confirmation "hiroshi123"
+    email {"ueki@test.com"}
+    password {"hiroshi123"}
+    password_confirmation {"hiroshi123"}
   end
 end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Users", type: :feature do
-
+RSpec.describe "Users", type: :system do
   given(:user) { create(:user) }
 
   scenario "ユーザーはログインができる" do
