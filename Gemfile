@@ -35,9 +35,9 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 2.15.2'
-  gem 'launchy', '~> 2.4.3'
-  gem 'factory_bot_rails', '~> 4.8.2'
+  gem 'capybara', '~> 3.36.0'
+  gem 'launchy', '~> 2.5.0'
+  gem 'factory_bot_rails', '~> 6.2.0'
 end
 
 gem 'redcarpet'
